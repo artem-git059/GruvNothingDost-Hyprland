@@ -1,0 +1,84 @@
+/* Конфигурация Rofi под красно-черные зернистые обои */
+
+configuration {
+    modi: "run,drun,window";
+    icon-theme: "Oranchelo"; /* Поменяйте на свой пак иконок, если нужно */
+    show-icons: true;
+    drun-display-format: "{name}";
+    disable-history: false;
+    sidebar-mode: false;
+}
+
+/* Цветовая палитра на основе картинки */
+* {
+    bg-color:            #1a1a1a;  /* Глубокий угольный фон */
+    bg-alt:              #262626;  /* Чуть более светлый серый для элементов */
+    fg-color:            #d9d2c9;  /* Мягкий бежево-песочный текст из левого верхнего угла */
+    accent-color:        #e64a19;  /* Яркий красно-оранжевый из центральной полосы */
+    accent-dim:          #a13314;  /* Приглушенный красный для рамок */
+    
+    background-color:    transparent;
+    text-color:          @fg-color;
+    margin:              0;
+    padding:             0;
+    spacing:             0;
+}
+
+window {
+    width:               450px;
+    background-color:    @bg-color;
+    border:              2px;
+    border-color:        @accent-dim;
+    border-radius:       8px;
+    padding:             20px;
+}
+
+mainbox {
+    children:            [ inputbar, listview ];
+}
+
+inputbar {
+    background-color:    @bg-alt;
+    border-radius:       6px;
+    padding:             10px 15px;
+    children:            [ prompt, entry ];
+    margin:              0px 0px 15px 0px;
+}
+
+prompt {
+    text-color:          @accent-color;
+    margin:              0px 10px 0px 0px;
+}
+
+entry {
+    placeholder:         "Поиск...";
+    placeholder-color:   #666666;
+}
+
+listview {
+    fixed-height:        0;
+    lines:               7;
+    spacing:             5px;
+    scrollbar:           false;
+}
+
+element {
+    padding:             8px 12px;
+    border-radius:       6px;
+    text-color:          @fg-color;
+}
+
+/* Стиль подсвеченного (выбранного) элемента */
+element selected {
+    background-color:    @accent-color;
+    text-color:          #1a1a1a; /* Темный текст на оранжевом фоне для читаемости */
+}
+
+element-icon {
+    size:                24px;
+    margin:              0px 10px 0px 0px;
+}
+
+element-text {
+    vertical-align:      0.5;
+}
